@@ -2,7 +2,9 @@
 
 ## Description
 
-Executable classes and the ABAP Development Tools console as an output area for information are particularly useful when using the SAP Business Technology platform (SAP BTP). With this sample class you are able to generate a [Markdown](https://en.wikipedia.org/wiki/Markdown) table from an internal table or structure in your ABAP code. The advantage is that a Markdown table can be easily prepared and processed: You can use online editors such as [Dillinger](https://dillinger.io/) or offline editors such as [Visual Studio Code](https://code.visualstudio.com/) with suitable plugins such as Markdown. Not to forget: Markdown plays a huge role on GitHub.
+Executable classes (F9) and the [ABAP Development Tools console](https://developers.sap.com/tutorials/abap-environment-console-application.html) as an output area for information are particularly useful when using the SAP Business Technology Platform (SAP BTP). With this [example class](./src/zmke_cl_markdown.clas.abap) you are able to generate a [Markdown](https://en.wikipedia.org/wiki/Markdown) table from an internal table or structure in your ABAP code. 
+
+The advantage is that a Markdown table can be easily prepared and processed: You can use online editors such as [Dillinger](https://dillinger.io/) or offline editors such as [Visual Studio Code](https://code.visualstudio.com/) with suitable plugins such as "Markdown All in One" and "Markdown Emoji". Not to forget: Markdown plays a huge role on GitHub :wink:
 
 ## Example
 
@@ -67,3 +69,5 @@ Here's the result for example 3:
 ## Notice
 
 I stumbled across some problems during development involving non-released development objects for SAP BTP, specifically methods of typical classes like CL_ABAP_STRUCTDESCR (really missing GET_DDIC_FIELD_LIST). In an on-premises system, some things such as the column headings of the Markdown table could certainly be designed better ([CamelCase](https://en.wikipedia.org/wiki/Camel_case)).
+
+More important note is that I didn't implement any suitable error handling. Maybe someone wants to add that to this project? :wink:
