@@ -16,18 +16,18 @@ CLASS zmke_cl_markdown DEFINITION PUBLIC FINAL CREATE PRIVATE.
       IMPORTING
         table         TYPE any
       RETURNING
-        VALUE(result) TYPE abap_component_tab.
+        VALUE(result) TYPE cl_abap_structdescr=>included_view.
 
     METHODS generate_table_headline
       IMPORTING
-        components    TYPE abap_component_tab
+        components    TYPE cl_abap_structdescr=>included_view
       RETURNING
         VALUE(result) TYPE string_table.
 
     METHODS generate_table_entries
       IMPORTING
         table         TYPE any
-        components    TYPE abap_component_tab
+        components    TYPE cl_abap_structdescr=>included_view
       RETURNING
         VALUE(result) TYPE string_table.
 
@@ -47,7 +47,9 @@ CLASS zmke_cl_markdown IMPLEMENTATION.
         RETURN.
     ENDTRY.
 
-    DATA(components) = description->get_components( ).
+    " no use of GET_COMPONENTS method because included structures will not be resolved
+    " therefore GET_INCLUDED_VIEW is the better choice
+    DATA(components) = description->get_included_view( ).
 
     DATA(headlines) = VALUE string_table( ( `| Field | Value |` )
                                           ( `| :--- | :--- |` ) ).
@@ -133,7 +135,7 @@ CLASS zmke_cl_markdown IMPLEMENTATION.
         RETURN.
     ENDTRY.
 
-    result = structure_description->get_components( ).
+    result = structure_description->get_included_view( ).
   ENDMETHOD.
 
 
