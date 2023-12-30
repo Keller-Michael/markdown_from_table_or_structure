@@ -10,7 +10,7 @@ The advantage is that a Markdown table can be easily prepared and processed: You
 
 Here are some example calls to generate a Markdown table from a structure (example 1), from internal table (example 2) and from BAPI messages (example 3).
 
-```
+```abap
 METHOD if_oo_adt_classrun~main.
   DATA markdown_table TYPE string_table.
 
